@@ -111,19 +111,26 @@ public class EnemyMoveAndShoot : MonoBehaviour
 	}
       
 
-    void OnCollisionEnter(Collision other)
-    {
- //We compare the tag in the other object to the tag name we set earlier.
-        if (other.transform.CompareTag("bullet"))
-        {
-            contact = other.contacts[0];
-            hit = true;
-            Health = Health - 1;
-    Debug.Log(Health);
-            if(Health == 0) {
-                Destroy(gameObject);
-            }
+//     void OnCollisionEnter(Collision other)
+//     {
+//  //We compare the tag in the other object to the tag name we set earlier.
+//         if (other.transform.CompareTag("bullet"))
+//         {
+//             contact = other.contacts[0];
+//             hit = true;
+//             Health = Health - 1;
+//     Debug.Log(Health);
+//             if(Health == 0) {
+//                 Destroy(gameObject);
+//             }
 
+//         }
+//     }
+
+    public void SendDamage(int damage) {
+        Health = Health - damage;
+        if(Health == 0) {
+            Destroy(gameObject);
         }
     }
 

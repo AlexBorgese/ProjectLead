@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletHit : MonoBehaviour
 {
     public GameObject particle;
+    public int damage;
 
     // Update is called once per frame
     void Update()
@@ -20,5 +21,6 @@ public class BulletHit : MonoBehaviour
         Vector3 pos = contact.point; 
         Instantiate(particle, pos, rot);
         gameObject.SetActive(false);
+        other.transform.BroadcastMessage("SendDamage", damage);
     }
 }

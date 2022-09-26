@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particle: {fileID: 8135105376126711470, guid: b7af9586c9c334a4b984105f08b2c062, type: 3}
+  damage: 1
 --- !u!1 &4159329251353326295
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +141,7 @@ GameObject:
   - component: {fileID: 2624258691455940760}
   - component: {fileID: 4615995124519195911}
   m_Layer: 6
-  m_Name: Projectile
+  m_Name: Revolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
