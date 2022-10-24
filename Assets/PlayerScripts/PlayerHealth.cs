@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class PlayerHealth : MonoBehaviour
         UpdateText();
         if (!isActive && damageFX != null) {
             StartCoroutine(SetEffect());
+        }
+        if(health == 0){
+            SceneManager.LoadScene("Menu");
         }
     }
 

@@ -26,7 +26,6 @@ public class UseAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(weaponType);
         if (Input.GetButtonDown("Fire1")) {
             if (ammoAmount > 0) {
                 ammoAmount--;

@@ -135,7 +135,6 @@ public class EnemyMoveAndShoot : MonoBehaviour
     }
 
     private void Patrolling() {
-        Debug.Log("Patrolling");
         if (!walkPointSet) SearchWalkPoint();
 
         if(walkPointSet) {
@@ -162,12 +161,10 @@ public class EnemyMoveAndShoot : MonoBehaviour
     }
 
     private void ChasePlayer() {
-        Debug.Log("Chase");
         agent.SetDestination(player.position);
     }
 
     private void AttackPlayer() {
-        Debug.Log("AttackS");
         if(isMelee) {
             agent.SetDestination(player.position);
         } else {
