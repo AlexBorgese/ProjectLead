@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponPickup : MonoBehaviour
 {
 
-    public GameObject weaponType;
+    public WeaponType weaponType;
     public bool respawn;
     public float delaySpawn = 30;
 

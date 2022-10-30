@@ -1,24 +1,33 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
 
 public class UseAttack : MonoBehaviour
 {
-    public int ammoAmount = 10;
+    private bool isReloading = false;
     public float meleeRepeatDelay = 0.25f;
-    private GameObject weaponType;
+    private WeaponType weaponType;
     public GameObject punchMesh;
     public Text ammoPanel;
     private bool punchActive;
     private int weaponId;
+    private WeaponSwitching weaponSwitching;
 
-    public GameObject revolver;
-    public GameObject rifle;
+    private void Awake()
+    {
+        weaponSwitching = gameObject.GetComponent<WeaponSwitching>();
+    }
 
     void Start()
     {
-        weaponType = revolver;
+        weaponType = weaponSwitching.selectedWeaponType;
+
+        if (weaponType.currentAmmo == -1)
+        {
+            weaponType.currentAmmo = weaponType.maxAmmo;
+        }
         UpdateText();
         punchMesh.SetActive(false);
     }
@@ -26,11 +35,19 @@ public class UseAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        weaponType = weaponSwitching.selectedWeaponType;
+        if (isReloading) return;
+        if (weaponType.currentAmmo <= 0)
+        {
+            StartCoroutine(Reload());
+            return;
+        }
         if (Input.GetButtonDown("Fire1")) {
-            if (ammoAmount > 0) {
-                ammoAmount--;
+            if (weaponType.currentAmmo > 0) {
+                weaponType.currentAmmo--;
                 UpdateText();
-                var clone = Instantiate(weaponType, gameObject.transform.position, gameObject.transform.rotation);
+                // change the below to a generic projectile?
+                var clone = Instantiate(weaponType.prefab, gameObject.transform.position, gameObject.transform.rotation);
                 Destroy(clone, 5.0f);
             } else {
                 if (!punchActive) {
@@ -41,19 +58,28 @@ public class UseAttack : MonoBehaviour
         }
     }
 
-    void ApplyAmmo(int ammo)
+    IEnumerator Reload()
     {
-        ammoAmount += ammo;
+        isReloading = true;
+        yield return new WaitForSeconds(weaponType.reloadTime);
+        weaponType.currentAmmo = weaponType.maxAmmo;
+        isReloading = false;
         UpdateText();
     }
 
-    void SetWeapon(GameObject weapon) {
-        weaponType = weapon;
+    void ApplyAmmo(int ammo)
+    {
+        weaponType.currentAmmo += ammo;
+        UpdateText();
     }
+
+    void SetWeapon(WeaponType weapon) {
+        weaponSwitching.AddWeaponToList(weapon);
+   }
 
     void UpdateText() {
         if (ammoPanel != null) {
-            ammoPanel.text = ammoAmount.ToString();
+            ammoPanel.text = weaponType.currentAmmo.ToString();
         }
     }
 

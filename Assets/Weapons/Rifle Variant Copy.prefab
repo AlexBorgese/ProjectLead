@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4159329251353326295, guid: 4eeeda011c4ad184a94ea532a61110da, type: 3}
       propertyPath: m_Name
-      value: Rifle Variant
+      value: Rifle Variant Copy
       objectReference: {fileID: 0}
     - target: {fileID: 4280967753409542650, guid: 4eeeda011c4ad184a94ea532a61110da, type: 3}
       propertyPath: m_LocalRotation.w

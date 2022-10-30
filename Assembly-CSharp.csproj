@@ -58,6 +58,7 @@
      <Compile Include="Assets\InventoryItemData.cs" />
      <Compile Include="Assets\EnemyScripts\activateEnemyProjectile.cs" />
      <Compile Include="Assets\ItemObject.cs" />
+     <Compile Include="Assets\WeaponType.cs" />
      <Compile Include="Assets\BulletHit.cs" />
      <Compile Include="Assets\WeaponPickup.cs" />
      <Compile Include="Assets\EnemyScripts\EnemyDamage.cs" />
@@ -71,6 +72,7 @@
      <Compile Include="Assets\HealthPickup.cs" />
      <Compile Include="Assets\EnemyScripts\EnemyMoveAndShoot.cs" />
      <Compile Include="Assets\PlayerScripts\MouseLook.cs" />
+     <Compile Include="Assets\WeaponSwitching.cs" />
      <None Include="Assets\TerrainSampleAssets\ThirdPartyNotices.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
