@@ -11,4 +11,5 @@ public class WeaponType : ScriptableObject
     public float reloadTime;
     public int damage;
     public GameObject prefab;
+    public GameObject gunModel;
 }

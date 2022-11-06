@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72af723cba716c040945917c4713ef22, type: 3}
   m_Name: revolver
   m_EditorClassIdentifier: 
-  id: Revolver
+  id: RevolverModel
   maxAmmo: 6
+  currentAmmo: 5
   reloadTime: 1
   damage: 1
   prefab: {fileID: 4159329251353326295, guid: 4eeeda011c4ad184a94ea532a61110da, type: 3}
+  gunModel: {fileID: 4007228513378567614, guid: 1137ad98c4bb12945bf6758744116b11, type: 3}

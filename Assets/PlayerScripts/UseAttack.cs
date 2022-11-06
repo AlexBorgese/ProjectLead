@@ -14,6 +14,8 @@ public class UseAttack : MonoBehaviour
     private bool punchActive;
     private int weaponId;
     private WeaponSwitching weaponSwitching;
+    public Animator animator;
+    public ParticleSystem muzzelFlash;
 
     private void Awake()
     {
@@ -43,6 +45,7 @@ public class UseAttack : MonoBehaviour
             return;
         }
         if (Input.GetButtonDown("Fire1")) {
+            muzzelFlash.Play();
             if (weaponType.currentAmmo > 0) {
                 weaponType.currentAmmo--;
                 UpdateText();
@@ -61,7 +64,9 @@ public class UseAttack : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
+        animator.SetBool("Reloading", true);
         yield return new WaitForSeconds(weaponType.reloadTime);
+        animator.SetBool("Reloading", false);
         weaponType.currentAmmo = weaponType.maxAmmo;
         isReloading = false;
         UpdateText();

@@ -8,9 +8,7 @@ public class KeyTrigger : MonoBehaviour
     public Triggerable[] targets;
     public InventoryItemData item;
     private void OnTriggerStay(Collider other) {
-        Debug.Log(InventorySystem.Instance.Get(item));
         if (other.gameObject.CompareTag("Player") && InventorySystem.Instance.Get(item) != null) {
-            Debug.Log("Enter Door");
             TriggerTargets();
             // InventorySystem.Instance.Remove(item);
         }

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72af723cba716c040945917c4713ef22, type: 3}
   m_Name: Rifle
   m_EditorClassIdentifier: 
-  id: 
+  id: RifleModel
   maxAmmo: 10
+  currentAmmo: 6
   reloadTime: 3
   damage: 5
   prefab: {fileID: 1567454060139661447, guid: 5bb073e047440d94e88f5ab278df0df8, type: 3}
+  gunModel: {fileID: 2748424813615231969, guid: 172f0238001f1e44faf4361769c14dca, type: 3}

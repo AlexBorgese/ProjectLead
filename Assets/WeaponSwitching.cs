@@ -6,8 +6,9 @@ using UnityEngine;
 
 public class WeaponSwitching : MonoBehaviour
 {
-    public List<WeaponType> weaponsList;
+    public List<WeaponType> weaponsList = new List<WeaponType>();
     public WeaponType selectedWeaponType;
+    public int selectedWeapon = 0;
 
     public WeaponSwitching(WeaponType startingWeapon)
     {
@@ -19,27 +20,69 @@ public class WeaponSwitching : MonoBehaviour
         weaponsList.Add(selectedWeaponType);
     }
 
+    void Start()
+    {
+        SelectWeapon();
+    }
+
     void Update()
     {
-        int index = weaponsList.IndexOf(selectedWeaponType);
-        if (Input.GetAxis("Mouse ScrollWheel") != 0f)
+        int previousSelectedWeapon = selectedWeapon;
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
-            try
+            if (selectedWeapon >= transform.childCount - 1)
             {
-                selectedWeaponType = weaponsList[index + 1];
-            }
-            catch (Exception e)
-            {
+                selectedWeapon = 0;
                 selectedWeaponType = weaponsList[0];
             }
+            else
+            {
+                selectedWeapon++;
+                Debug.Log("is this the right weapon" + weaponsList[selectedWeapon]);
+                selectedWeaponType = weaponsList[selectedWeapon];
+            }
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            if (selectedWeapon <= 0)
+            {
+                selectedWeapon = transform.childCount - 1;
+                selectedWeaponType = weaponsList[selectedWeapon];
+            }
+            else
+            {
+                selectedWeapon--;
+                selectedWeaponType = weaponsList[selectedWeapon];
+            }
+        }
+
+        if (previousSelectedWeapon != selectedWeapon)
+        {
+            SelectWeapon();
         }
     }
 
+    void SelectWeapon()
+    {
+        int i = 0;
+
+        foreach (Transform weapon in transform)
+        {
+            if (i == selectedWeapon)
+            {
+                weapon.gameObject.SetActive(true);
+            }
+            else
+            {
+                weapon.gameObject.SetActive(false);
+            }
+            i++;
+        }
+    }
+    
     public void AddWeaponToList(WeaponType weapon)
     {
-        if (!weaponsList.Contains(weapon))
-        {
-            weaponsList.Add(weapon);
-        }
+        weaponsList.Add(weapon);
     }
 }
