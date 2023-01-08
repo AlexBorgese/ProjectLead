@@ -1,4 +1,18 @@
 Assets/TerrainSampleAssets
 Assets/TextMesh Pro
+Assets/ProBuilder Data
+Assets/*.meta
+Assets/*.cs.meta
+Assets/Animations/**.anim.meta
+Assets/**.blend1
 Library/
 Logs
+.vs/
+.idea/
+Logs
+obj/
+My project.sln
+HeathenEngineering.UX.csproj
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+Temp/

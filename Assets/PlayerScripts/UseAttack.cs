@@ -45,12 +45,13 @@ public class UseAttack : MonoBehaviour
             return;
         }
         if (Input.GetButtonDown("Fire1")) {
-            muzzelFlash.Play();
             if (weaponType.currentAmmo > 0) {
                 weaponType.currentAmmo--;
                 UpdateText();
                 // change the below to a generic projectile?
                 var clone = Instantiate(weaponType.prefab, gameObject.transform.position, gameObject.transform.rotation);
+                muzzelFlash.Play();
+
                 Destroy(clone, 5.0f);
             } else {
                 if (!punchActive) {
