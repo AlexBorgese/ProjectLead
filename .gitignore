@@ -16,3 +16,4 @@ HeathenEngineering.UX.csproj
 Assembly-CSharp.csproj
 Assembly-CSharp-Editor.csproj
 Temp/
+.fake

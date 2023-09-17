@@ -80,6 +80,13 @@ public class WeaponSwitching : MonoBehaviour
             i++;
         }
     }
+
+    public void SetWeapon(int id) {
+        Debug.Log("setting weapon to " + id);
+        selectedWeapon = id;
+        selectedWeaponType = weaponsList[id];
+        SelectWeapon();
+    }
     
     public void AddWeaponToList(WeaponType weapon)
     {

@@ -51,6 +51,7 @@
      <Compile Include="Assets\InventoryItem.cs" />
      <Compile Include="Assets\Shared\Scripts\SimpleCameraController.cs" />
      <Compile Include="Assets\MoveToPosition.cs" />
+     <Compile Include="Assets\WeaponWheelController.cs" />
      <Compile Include="Assets\Trigger.cs" />
      <Compile Include="Assets\PlayerScripts\UseAttack.cs" />
      <Compile Include="Assets\PlayerScripts\PlayerDamage.cs" />
@@ -59,6 +60,7 @@
      <Compile Include="Assets\Door.cs" />
      <Compile Include="Assets\KeyTrigger.cs" />
      <Compile Include="Assets\Shared\Scripts\AdjustTimeScale.cs" />
+     <Compile Include="Assets\WeaponWheelButtonController.cs" />
      <Compile Include="Assets\InventoryItemData.cs" />
      <Compile Include="Assets\EnemyScripts\activateEnemyProjectile.cs" />
      <Compile Include="Assets\ItemObject.cs" />
@@ -83,8 +85,6 @@
      <Compile Include="Assets\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
      <Compile Include="Assets\EnemyScripts\EnemyMoveAndShoot.cs" />
      <Compile Include="Assets\PlayerScripts\MouseLook.cs" />
-     <Compile Include="Assets\WeaponWheelButtonController.cs" />
-     <Compile Include="Assets\WeaponWheelController.cs" />
      <None Include="Assets\TerrainSampleAssets\ThirdPartyNotices.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

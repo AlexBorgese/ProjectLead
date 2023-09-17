@@ -4,16 +4,24 @@ using UnityEngine.UI;
 public class WeaponWheelController : MonoBehaviour
 {
     public Animator anim;
-    private bool weaponWheelSelected = false;
+    public static bool weaponWheelSelected = false;
     public Image SelectedItem;
     public Sprite noImage;
     public static int weaponID;
 
-    // Update is called once per frame
+    public GameObject playerWeapons;
+
+    private WeaponSwitching weaponSwitcher; 
+
+    void Awake() {
+        weaponSwitcher = playerWeapons.GetComponent<WeaponSwitching>();
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Tab)){
             weaponWheelSelected = !weaponWheelSelected;
+            Cursor.lockState = CursorLockMode.Confined;
         }
 
         if (weaponWheelSelected) {
@@ -24,12 +32,11 @@ public class WeaponWheelController : MonoBehaviour
 
         switch(weaponID) {
             case 0:
-                SelectedItem.sprite = noImage;
-                break;
-            case 1:
+                weaponSwitcher.SetWeapon(0);
                 Debug.Log("Revolver");
                 break;
-            case 2:
+            case 1:
+                weaponSwitcher.SetWeapon(1);
                 Debug.Log("Rifle");
                 break;
         }

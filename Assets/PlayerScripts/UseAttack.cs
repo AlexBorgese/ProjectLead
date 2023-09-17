@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -17,9 +16,11 @@ public class UseAttack : MonoBehaviour
     public Animator animator;
     public ParticleSystem muzzelFlash;
 
+    public GameObject playerWeapons;
+
     private void Awake()
     {
-        weaponSwitching = gameObject.GetComponent<WeaponSwitching>();
+        weaponSwitching = playerWeapons.GetComponent<WeaponSwitching>();
     }
 
     void Start()
@@ -37,14 +38,14 @@ public class UseAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        weaponType = weaponSwitching.selectedWeaponType;
+        Debug.Log("weapon type????" + weaponType);
         if (isReloading) return;
         if (weaponType.currentAmmo <= 0)
         {
             StartCoroutine(Reload());
             return;
         }
-        if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetButtonDown("Fire1")  && WeaponWheelController.weaponWheelSelected != true) {
             if (weaponType.currentAmmo > 0) {
                 weaponType.currentAmmo--;
                 UpdateText();

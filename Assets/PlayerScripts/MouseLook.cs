@@ -24,6 +24,7 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(WeaponWheelController.weaponWheelSelected != true) {
         //Player input from the mouse
         rotation.y += Input.GetAxis("Mouse Y") * lookSensitivity;
  
@@ -35,5 +36,6 @@ public class MouseLook : MonoBehaviour
         currentLookRot.y = Mathf.SmoothDamp(currentLookRot.y, rotation.y, ref rotationV.y, lookSmoothDamp);
 
         transform.localEulerAngles = new Vector3(-currentLookRot.y, 0, 0);
+        }
     }
 }
