@@ -38,7 +38,6 @@ public class WeaponSwitching : MonoBehaviour
             else
             {
                 selectedWeapon++;
-                Debug.Log("is this the right weapon" + weaponsList[selectedWeapon]);
                 selectedWeaponType = weaponsList[selectedWeapon];
             }
         }
@@ -81,13 +80,13 @@ public class WeaponSwitching : MonoBehaviour
         }
     }
 
-    public void SetWeapon(int id) {
-        Debug.Log("setting weapon to " + id);
+    public void SetWeapon(int id)
+    {
         selectedWeapon = id;
         selectedWeaponType = weaponsList[id];
         SelectWeapon();
     }
-    
+
     public void AddWeaponToList(WeaponType weapon)
     {
         weaponsList.Add(weapon);

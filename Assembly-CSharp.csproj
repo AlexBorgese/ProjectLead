@@ -85,6 +85,7 @@
      <Compile Include="Assets\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
      <Compile Include="Assets\EnemyScripts\EnemyMoveAndShoot.cs" />
      <Compile Include="Assets\PlayerScripts\MouseLook.cs" />
+     <Compile Include="Assets\aim.cs" />
      <None Include="Assets\TerrainSampleAssets\ThirdPartyNotices.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

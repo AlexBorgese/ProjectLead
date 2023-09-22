@@ -38,15 +38,16 @@ public class UseAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("weapon type????" + weaponType);
         if (isReloading) return;
         if (weaponType.currentAmmo <= 0)
         {
             StartCoroutine(Reload());
             return;
         }
-        if (Input.GetButtonDown("Fire1")  && WeaponWheelController.weaponWheelSelected != true) {
-            if (weaponType.currentAmmo > 0) {
+        if (Input.GetButtonDown("Fire1") && WeaponWheelController.weaponWheelSelected != true)
+        {
+            if (weaponType.currentAmmo > 0)
+            {
                 weaponType.currentAmmo--;
                 UpdateText();
                 // change the below to a generic projectile?
@@ -54,8 +55,11 @@ public class UseAttack : MonoBehaviour
                 muzzelFlash.Play();
 
                 Destroy(clone, 5.0f);
-            } else {
-                if (!punchActive) {
+            }
+            else
+            {
+                if (!punchActive)
+                {
                     punchActive = true;
                     StartCoroutine(MeleeAttack());
                 }
@@ -80,17 +84,21 @@ public class UseAttack : MonoBehaviour
         UpdateText();
     }
 
-    void SetWeapon(WeaponType weapon) {
+    void SetWeapon(WeaponType weapon)
+    {
         weaponSwitching.AddWeaponToList(weapon);
-   }
+    }
 
-    void UpdateText() {
-        if (ammoPanel != null) {
+    void UpdateText()
+    {
+        if (ammoPanel != null)
+        {
             ammoPanel.text = weaponType.currentAmmo.ToString();
         }
     }
 
-    IEnumerator MeleeAttack() {
+    IEnumerator MeleeAttack()
+    {
         punchMesh.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         punchMesh.SetActive(false);
